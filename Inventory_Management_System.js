@@ -61,3 +61,16 @@ function calculateInventoryValue(){
 let totalInventoryValue = calculateInventoryValue(Inventory)
 console.log(`Total Inventory Value is: $${totalInventoryValue}`)
 
+
+// Task 6: Create a Function to Process a Sale
+
+function processSale(productName, unitsSold){
+    let result = Inventory.find((product) => product.name === productName);
+if (result){
+        return "Product is not in the inventory.";
+} else {
+    return updateStock(result, unitsSold);
+}
+};
+
+processSale("Laptop", 1);
