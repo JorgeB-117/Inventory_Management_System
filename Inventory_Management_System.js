@@ -8,16 +8,32 @@ const Inventory = [
     {name: "Speaker", price: 200, quantity: 70, lowStockLevel: 20},
 ];
 
-console.log(Inventory[0].name);
 
 // Task 2: Create a Function to Display Product Details
 
-function displayProductDetails(Inventory){
-    return Inventory.quantity > Inventory.lowStockLevel ? "inStock" : "lowStock";
-}
+function displayProductDetails(products){
+    const status = products.quantity <= products.lowStockLevel ? "low in stock" : "in stock"
+    return (`${products.name}, Price: $${products.price}, Quantity: ${products.quantity}, product is ${status}`);
+};
 
-    console.log(`Product: ${Inventory.name}`);
-    console.log(`Price: $${Inventory.price}`);
-    console.log(`Quantity in stock: ${Inventory.quantity}`);
-    console.log(`Stock status: ${Inventory.lowStockLevel}`);
+console.log(displayProductDetails(Inventory[0]));
+
+//Test function works, everything is displayed and when number is changed, the correct output exists. 
+
+
+// Task 3: Create a Function to Update Product Stock After Sales
+
+function updateStock(Inventory, unitsSold){
+    Inventory.quantity -= unitsSold;
+if (Inventory.quantity <= 0) {
+    console.log(`${Inventory.name} is now out of stock`); 
+}
+else if (Inventory.lowStockLevel >= Inventory.quantity){
+    console.log(`${Inventory.name} is now low stock`);
+}
+};
+
+//Test function works correctly, quantity is 3. 
+updateStock(Inventory[0],17);
+displayProductDetails(Inventory[0]);
 
