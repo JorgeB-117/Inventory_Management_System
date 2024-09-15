@@ -3,7 +3,7 @@
 const Inventory = [
     {name: "Laptop", price: 1500, quantity: 20, lowStockLevel: 5},
     {name: "Phone", price: 1000, quantity: 40, lowStockLevel: 10},
-    {name: "Tablet", price: 1250, quantity: 30, lowStockLevel: 5},
+    {name: "Tablet", price: 1250, quantity: 10, lowStockLevel: 15},
     {name: "Headphones", price: 300, quantity: 60, lowStockLevel: 15},
     {name: "Speaker", price: 200, quantity: 70, lowStockLevel: 20},
 ];
@@ -23,17 +23,30 @@ console.log(displayProductDetails(Inventory[0]));
 
 // Task 3: Create a Function to Update Product Stock After Sales
 
-function updateStock(Inventory, unitsSold){
-    Inventory.quantity -= unitsSold;
-if (Inventory.quantity <= 0) {
-    console.log(`${Inventory.name} is now out of stock`); 
+function updateStock(products, unitsSold){
+    products.quantity -= unitsSold;
+if (products.quantity <= 0) {
+    console.log(`${products.name} is now out of stock`); 
 }
-else if (Inventory.lowStockLevel >= Inventory.quantity){
-    console.log(`${Inventory.name} is now low stock`);
+else if (products.lowStockLevel >= products.quantity){
+    console.log(`${products.name} is now low stock`);
 }
 };
 
-//Test function works correctly, quantity is 3. 
+//Test function works correctly as it is now low in stock.
 updateStock(Inventory[0],17);
-displayProductDetails(Inventory[0]);
+
+
+// Task 4: Create a Function to Check Low Stock Products
+
+function checkLowStock(Inventory){
+    Inventory.forEach(Inventory => {
+        if (Inventory.quantity <= Inventory.lowStockLevel) 
+            return console.log(`Products which are now low in stock:${Inventory.name}`);
+}
+)};
+
+//Test works, give back laptop and tablet.
+checkLowStock(Inventory);
+
 
