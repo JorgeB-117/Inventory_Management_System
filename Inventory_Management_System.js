@@ -50,3 +50,14 @@ function checkLowStock(Inventory){
 checkLowStock(Inventory);
 
 
+// Task 5: Create a Function to Calculate Total Inventory Value
+
+function calculateInventoryValue(){
+    return Inventory.reduce((total, Inventory) => {
+        return total + (Inventory.quantity * Inventory.price)},0); 
+};
+
+//Output gives out "Total Inventory Value is: $89000"
+let totalInventoryValue = calculateInventoryValue(Inventory)
+console.log(`Total Inventory Value is: $${totalInventoryValue}`)
+
