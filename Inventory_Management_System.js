@@ -1,6 +1,6 @@
 // Task 1: Create an Inventory Array of Product Objects
 
-let Inventory = [
+const Inventory = [
     {name: "Laptop", price: 1500, quantity: 20, lowStockLevel: 5},
     {name: "Phone", price: 1000, quantity: 40, lowStockLevel: 10},
     {name: "Tablet", price: 1250, quantity: 30, lowStockLevel: 5},
@@ -9,4 +9,15 @@ let Inventory = [
 ];
 
 console.log(Inventory[0].name);
+
+// Task 2: Create a Function to Display Product Details
+
+function displayProductDetails(Inventory){
+    return Inventory.quantity > Inventory.lowStockLevel ? "inStock" : "lowStock";
+}
+
+    console.log(`Product: ${Inventory.name}`);
+    console.log(`Price: $${Inventory.price}`);
+    console.log(`Quantity in stock: ${Inventory.quantity}`);
+    console.log(`Stock status: ${Inventory.lowStockLevel}`);
 
